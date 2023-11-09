@@ -1,7 +1,3 @@
-# 为什么要这么做？因为加了部分同义词后，模型的性能是有所提升的
-# Give synonyms for "vision" based on the content of the text """the formation of a mental image of something that is not perceived as real and is not present to the senses; "popular imagination created a world of demons"; "imagination reveals what the world could be"""", and answer in the format {'vision':[your answer]}.
-# 限制了输出的内容之后，速度会快很多，因为生成内容变少了（杂话少了很多）
-# 为了规范文本内容，将文本对应的双引号替换为单引号
 import torch
 from modelscope import Model, snapshot_download
 from modelscope.models.nlp.llama2 import Llama2Tokenizer
