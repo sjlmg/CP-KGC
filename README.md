@@ -24,7 +24,11 @@ For filtering synonyms, please refer to the **Synonyms_WN18RR** folder.
 
 |       | WN18RR |     |     |      | FB15K237 |    |    |     |
 |-------|--------|-----|-----|------|----------|----|----|-----|
-| SimKGC | MRR    | H@1 | H@3 | H@10 | MRR      | H@1 | H@3 | H@10 |
+|       | MRR    | H@1 | H@3 | H@10 | MRR      | H@1| H@3| H@10|
+|SimKGC |        |     |     |      |          |    |    |     |
+|SimKGC+CP-KGC |   |   |   |    |       |    |    |     |
+|KG-S2S |        |     |     |      |          |    |    |     |
+|KG-S2S+CP-KGC |   |   |   |    |       |    |    |     |
 
 
 
