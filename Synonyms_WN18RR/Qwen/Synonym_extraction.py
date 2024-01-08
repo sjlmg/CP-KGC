@@ -1,6 +1,6 @@
 import re
 def extract_words(text):
-    # 使用正则表达式匹配包含在方括号内的单词，并以[SEP]分隔
+    # Use a regular expression to match words contained within square brackets and separated by [SEP]
     words = re.findall(r"'(.*?)'", text)
     return '[SEP]'.join(words)
 
