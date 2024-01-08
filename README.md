@@ -20,7 +20,13 @@ Just replace the generated latest data of FB15K-237 and WN18RR in SimKGC.
 For filtering synonyms, please refer to the **Synonyms_WN18RR** folder.
 
 
-# Results
+# Contribute together?
+
+Apart from SimKGC, we have also tested the KG-S2S model, all of which are text-based knowledge graph completion models.
+
+Would you like to proceed with further testing using a One-Shot or Few-Shot approach, or experiment with prompts that you find effective?
+
+General-domain testing is meant to demonstrate the feasibility of this approach, while further exploration would require experimentation on domain-specific data. Considering the distribution of model training data, fine-tuning the model is necessary for vertical domains.
 
 |       | | WN18RR|     |      |  |FB15K237 |    |     |
 |-------|--------|-----|-----|------|----------|----|----|-----|
