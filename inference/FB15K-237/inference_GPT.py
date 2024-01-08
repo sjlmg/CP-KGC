@@ -8,7 +8,7 @@ def get_summarized_response(text):
     question = PROMPT + text
     try:
         completion = openai.ChatCompletion.create(
-            model="gpt-4",
+            model="gpt-4",  # or use gpt3.5-turbo here.
             messages=[
                 {"role": "assistant", "content": question}
             ]
