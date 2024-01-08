@@ -1,37 +1,46 @@
+# -*- coding: utf-8 -*-
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig
 from tqdm import tqdm
 
-def load_tokenizer():
-    """加载分词器"""
-    return AutoTokenizer.from_pretrained("/openbayes/input/input0", trust_remote_code=True)
+# Initialize the tokenizer with special token attack protection disabled by default
+tokenizer = AutoTokenizer.from_pretrained("/openbayes/input/input0", trust_remote_code=True)
 
-def load_model():
-    """加载模型"""
-    # 自动根据设备选择精度
-    return AutoModelForCausalLM.from_pretrained("/openbayes/input/input0", device_map="auto", trust_remote_code=True).eval()
+# Initialize the model with precision and device settings
+# Uncomment the appropriate model initialization based on your GPU's capabilities
+# For GPUs like A100, H100, RTX3060, RTX3070, etc., enable bf16 precision to save memory
+# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True, bf16=True).eval()
 
-def configure_model_generation(model):
-    """配置模型的生成参数"""
-    model.generation_config = GenerationConfig.from_pretrained("/openbayes/input/input0", trust_remote_code=True)
+# For GPUs like V100, P100, T4, etc., enable fp16 precision to save memory
+# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True, fp16=True).eval()
 
-def process_input_file(input_file, output_file, model, tokenizer, prompt):
-    """处理输入文件并生成输出文件"""
-    with open(input_file, 'r', encoding='utf-8') as f_input, open(output_file, 'w', encoding='utf-8') as f_output:
-        for count, line in enumerate(tqdm(f_input, desc="Processing...")):
-            num, text = line.strip().split('\t')
+# Use CPU for inference, requires about 32GB of memory
+# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="cpu", trust_remote_code=True).eval()
+
+# Default to auto mode, which automatically selects precision based on the device
+model = AutoModelForCausalLM.from_pretrained("/openbayes/input/input0", device_map="auto", trust_remote_code=True).eval()
+
+# Specify different generation lengths, top_p, and other hyperparameters
+model.generation_config = GenerationConfig.from_pretrained("/openbayes/input/input0", trust_remote_code=True)
+
+# Define the prompt for the model
+prompt = "Please summarize the following text in one sentence as briefly as possible, and output it in the format {'output':}: "
+
+# Initialize a counter for tracking the number of processed lines
+count = 0
+
+# Open the output file for writing the summaries
+with open('entity2textlong_summarize.txt', 'w', encoding='utf-8') as f2:
+    # Open the input file for reading the texts to be summarized
+    with open('entity2textlong.txt', 'r', encoding='utf-8') as f1:
+        # Iterate over each line in the input file
+        for line1 in tqdm(f1.readlines(), desc="predict..."):
+            num, text = line1.strip().split('\t')
             question = prompt + text
-            response, _ = model.chat(tokenizer, question, history=None)
-            f_output.write(f"{num}\t{response}\n")
+            response, history = model.chat(tokenizer, question, history=None)
             print(count, response)
 
-def main():
-    tokenizer = load_tokenizer()
-    model = load_model()
-    configure_model_generation(model)
+            # Writing num, response, and newline in one line
+            f2.write(f"{num}\t{response}\n")
 
-    prompt = "Please summarize the following text in one sentence as briefly as possible, and output it in the format {'output':}: "
-    process_input_file('entity2textlong.txt', 'entity2textlong_summarize.txt', model, tokenizer, prompt)
-
-if __name__ == "__main__":
-    main()
+            count += 1
