@@ -3,7 +3,7 @@ import openai
 from tqdm import tqdm
 
 def read_entity2text(file_path):
-    """读取实体到文本的映射"""
+
     entity2num = {}
     entity2text_dict = {}
 
@@ -20,12 +20,12 @@ def read_entity2text(file_path):
 
 
 def generate_question(entity, text):
-    """根据实体和文本生成问题"""
-    return f"Give synonyms for '{entity}' based on the content of the text '{text}', and answer in the python list."
+    """generate question"""
+    return f"Give synonyms for '{entity}' based on the content of the text '{text}', and answer in python list."
 
 
 def write_to_file(file_path, data):
-    """将数据写入文件"""
+    """write"""
     with open(file_path, 'w', encoding='utf-8') as f:
         for item in data:
             f.write(item + '\n')
