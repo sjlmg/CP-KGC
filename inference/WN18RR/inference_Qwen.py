@@ -1,60 +1,60 @@
+# -*- coding: utf-8 -*-
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig
 from tqdm import tqdm
 
 
-def generate_():
+def generate_synonyms():
+    # Read and process entity-text pairs from file
     entity2num = {}
     entity2text_dict = {}
-    with open('entity2text.txt', 'r', encoding='utf-8') as f1:
-        for line in f1.readlines():
+    with open('entity2text.txt', 'r', encoding='utf-8') as file:
+        for line in file.readlines():
             num, entity2text = line.strip().split('\t')
-            first_comma_index = entity2text.strip().find(',')
+            first_comma_index = entity2text.find(',')
             if first_comma_index != -1:
-                # 按照第一个逗号分割文本
-                split_text = entity2text.split(',', 1)
-                entity = split_text[0].strip()  # 第一个部分
-                text = split_text[1].strip()  # 第二个部分
+                entity, text = entity2text.split(',', 1)
+                entity = entity.strip()
+                text = text.strip().replace('"', '').replace("'", "")
                 entity2num[num] = entity
-                entity2text_dict[num] = text.replace('"', '').replace("'", "")
+                entity2text_dict[num] = text
 
-    base1 = "Give synonyms for '"
-    base2 = "' based on the content of the text '"
-    base3 = "', and answer in the format {'"
-    base4 = "':[your answer]}."
-    # temp4 = "Give synonyms for the following entities and return them as a list: "
+    # Preparing base parts of the query
+    query_base1 = "Give synonyms for '"
+    query_base2 = "' based on the content of the text '"
+    query_base3 = "', and answer in the format {'"
+    query_base4 = "':[your answer]}."
 
-    # 请注意：分词器默认行为已更改为默认关闭特殊token攻击防护。
+    # Initialize the tokenizer with special token attack protection disabled by default
     tokenizer = AutoTokenizer.from_pretrained("/openbayes/input/input0", trust_remote_code=True)
 
-    # 打开bf16精度，A100、H100、RTX3060、RTX3070等显卡建议启用以节省显存
+    # Initialize the model. Uncomment the appropriate model initialization based on your GPU's capabilities
+    # For bf16 precision (recommended for A100, H100, RTX3060, RTX3070 GPUs) to save memory
     # model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True, bf16=True).eval()
-    # 打开fp16精度，V100、P100、T4等显卡建议启用以节省显存
+
+    # For fp16 precision (recommended for V100, P100, T4 GPUs) to save memory
     # model = AutoModelForCausalLM.from_pretrained("/openbayes/input/input0", device_map="auto", trust_remote_code=True, fp16=True).eval()
-    # 使用CPU进行推理，需要约32GB内存
+
+    # For using CPU for inference, requires about 32GB of memory
     # model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="cpu", trust_remote_code=True).eval()
-    # 默认使用自动模式，根据设备自动选择精度
+
+    # Default to auto mode, which automatically selects precision based on the device
     model = AutoModelForCausalLM.from_pretrained("/openbayes/input/input0", device_map="auto",
                                                  trust_remote_code=True).eval()
 
-    # 可指定不同的生成长度、top_p等相关超参
+    # Configure model generation settings
     model.generation_config = GenerationConfig.from_pretrained("/openbayes/input/input0", trust_remote_code=True)
 
-    with open('generate_synonyms_new_Qwen.txt', 'w', encoding='utf-8') as f2:
-        count = 0
-        for key, value in tqdm(entity2text_dict.items(),desc="processing..."):
-            question = base1 + entity2num[key] + base2 + value + base3 + entity2num[key] + base4
-            # print(count,question)
-            response, history = model.chat(tokenizer, question, history=None)
-            response = response.replace("\n", '')
-            print(count, response)
-            f2.write(entity2num[key])
-            f2.write('\t')
-            f2.write(response)
-            f2.write('\n')
-            count += 1
+    # Generate synonyms and write to a new file
+    with open('generate_synonyms_new_Qwen.txt', 'w', encoding='utf-8') as output_file:
+        for count, (key, value) in enumerate(tqdm(entity2text_dict.items(), desc="processing...")):
+            question = f"{query_base1}{entity2num[key]}{query_base2}{value}{query_base3}{entity2num[key]}{query_base4}"
+            response, _ = model.chat(tokenizer, question, history=None)
+            response_cleaned = response.replace("\n", '')
+
+            print(count, response_cleaned)
+            output_file.write(f"{entity2num[key]}\t{response_cleaned}\n")
 
 
 if __name__ == '__main__':
-    generate_()
-
+    generate_synonyms()
