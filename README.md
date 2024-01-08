@@ -23,8 +23,8 @@ For filtering synonyms, please refer to the **Synonyms_WN18RR** folder.
 # Results
 
 |model|wn18rr| | | |fb15k237| | | |
-|     |MRR|H@1|H@3|H@10|MRR|H@1|H@3|H@10|
 |-----|---|---|---|----|---|---|---|----|
+|     |MRR|H@1|H@3|H@10|MRR|H@1|H@3|H@10|
 |SimKGC|  |   |   |    |   |   |   |    |
 
 
