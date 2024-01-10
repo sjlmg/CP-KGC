@@ -1,5 +1,5 @@
 # CP-KGC statement
-The paper is available at: [Can Text-based Knowledge Graph Completion Benefit From Zero-Shot Large Language Models?](https://arxiv.org/pdf/2310.08279.pdf)
+The paper is available at: [Can Text-based Knowledge Graph Completion Benefit From Zero-Shot Large Language Models?](https://arxiv.org/pdf/2310.08279.pdf) (Article content to be updated...)
 
 In this paper, we found that (1) without fine-tuning, LLMs have the capability to further improve the quality of entity text descriptions. We validated this through experiments on the FB15K-237 and WN18RR datasets. (2) LLMs exhibit text generation hallucination issues and selectively output words with multiple meanings. This was mitigated by contextualizing prompts to constrain LLM outputs. (3) Larger model sizes do not necessarily guarantee better performance; even the 7B model can achieve optimized results in this comparative task. These findings underscore the untapped potential of large models in text-based KGC, which is a promising direction for further research in KGC.
 
