@@ -20,6 +20,8 @@ Just replace the generated latest data of FB15K-237 and WN18RR in SimKGC.
 For filtering synonyms, please refer to the **Synonyms_WN18RR** folder.
 
 
+If you don't have the computing resources, you can use the Qwen-7B-Chat and LLaMA2-7B/13B-Chat inference tests [here](https://modelscope.cn/topic/dfefe5be778b49fba8c44646023b57ba/pub/summary).
+
 # Contribute together
 
 Apart from SimKGC, we have also tested the KG-S2S model, all of which are text-based knowledge graph completion models.
