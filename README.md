@@ -20,7 +20,7 @@ Just replace the generated latest data of FB15K-237 and WN18RR in SimKGC.
 For filtering synonyms, please refer to the **Synonyms_WN18RR** folder.
 
 
-If you don't have the computing resources, you can use the Qwen-7B-Chat and LLaMA2-7B/13B-Chat inference tests [here](https://modelscope.cn/topic/dfefe5be778b49fba8c44646023b57ba/pub/summary).
+If you don't have the computing resources, you can use the Qwen-7B-Chat and LLaMA2-7B/13B-Chat inference tests [here](https://modelscope.cn/topic/dfefe5be778b49fba8c44646023b57ba/pub/summary). ModelScope provides sufficient computing resources for inference testing of the 13B model. You can also use quantized models for inference.
 
 # Contribute together
 
