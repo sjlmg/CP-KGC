@@ -21,7 +21,13 @@ CP-KGC used [SimKGC](https://github.com/intfloat/SimKGC) as the basic model in t
 pip install transformers
 ```
 
-Just replace the generated latest data of FB15K-237(**FB15k_mid2description_llama2_13B_chat.txt-->FB15k_mid2description.txt**) and WN18RR(**wordnet-mlj12-definitions_llama2_7B_chat.txt-->wordnet-mlj12-definitions.txt**) in SimKGC.
+Just replace the generated latest data of FB15K-237 and WN18RR in SimKGC.
+
+
+* In FB15k-237, you need to replace FB15k_mid2description.txt with FB15k_mid2description_llama2_13B_chat.txt.
+* In WN18RR，you need to replace wordnet-mlj12-definitions.txt with wordnet-mlj12-definitions_llama2_7B_chat.txt.
+
+
 
 For filtering synonyms, please refer to the **Synonyms_WN18RR** folder.
 
