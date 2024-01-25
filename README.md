@@ -5,6 +5,12 @@ In this paper, we found that (1) without fine-tuning, LLMs have the capability t
 
 # Requirements
 
+* python>=3.8
+* torch>=1.8 (for mixed precision training)
+* transformers>=4.15
+
+All experiments are run with 1 A100(80GB) GPU.
+
 If you want to reproduce our best experimental results, you need to download the model weights [here](https://drive.google.com/drive/my-drive), and replace the file path.
 
 The graphics required to reproduce the experiment is about 78GB.
@@ -15,7 +21,7 @@ CP-KGC used [SimKGC](https://github.com/intfloat/SimKGC) as the basic model in t
 pip install transformers
 ```
 
-Just replace the generated latest data of FB15K-237 and WN18RR in SimKGC.
+Just replace the generated latest data of FB15K-237(FB15k_mid2description.txt) and WN18RR(wordnet-mlj12-definitions.txt) in SimKGC.
 
 For filtering synonyms, please refer to the **Synonyms_WN18RR** folder.
 
