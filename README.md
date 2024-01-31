@@ -5,6 +5,8 @@ In this paper, we found that (1) without fine-tuning, LLMs have the capability t
 
 ![Alt text](./CP-KGC.png)
 
+CP-KGC data augmentation strategy evaluation framework. Design simple prompt cues to regenerate or supplement text content using entities and text descriptions from the WN18RR and FB15k-237 datasets. This enhances the expressive capacity of existing data to explore the hypothesis that the limited text descriptions inherent in the data restrict the performance ceiling of text-based KGC models.
+
 # Requirements
 
 * python>=3.8
