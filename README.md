@@ -3,7 +3,7 @@ The paper is available at: [Can Text-based Knowledge Graph Completion Benefit Fr
 
 In this paper, we found that (1) without fine-tuning, LLMs have the capability to further improve the quality of entity text descriptions. We validated this through experiments on the FB15K-237 and WN18RR datasets. (2) LLMs exhibit text generation hallucination issues and selectively output words with multiple meanings. This was mitigated by contextualizing prompts to constrain LLM outputs. (3) Larger model sizes do not necessarily guarantee better performance; even the 7B model can achieve optimized results in this comparative task. These findings underscore the untapped potential of large models in text-based KGC, which is a promising direction for further research in KGC.
 
-![Alt text](./CP-KGC.png)
+![Alt text](./model.png)
 
 CP-KGC data augmentation strategy evaluation framework. Design simple prompt cues to regenerate or supplement text content using entities and text descriptions from the WN18RR and FB15k-237 datasets. This enhances the expressive capacity of existing data to explore the hypothesis that the limited text descriptions inherent in the data restrict the performance ceiling of text-based KGC models.
 
