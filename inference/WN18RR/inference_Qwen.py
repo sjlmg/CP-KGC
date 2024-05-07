@@ -1,60 +1,62 @@
-# -*- coding: utf-8 -*-
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from transformers.generation import GenerationConfig
 from tqdm import tqdm
+device = "cuda" # the device to load the model onto
 
+def process_string(input_str):
+    """
+    有一批字符串的格式为：land_reform_NN_1，主要分为三部分，分别是land_reform，NN和1，现在需要对这个字符串进行处理，分别获取land reform,NN两部分
+    """
+    # Splitting the input string by underscores
+    parts = input_str.split('_')
 
-def generate_synonyms():
-    # Read and process entity-text pairs from file
-    entity2num = {}
-    entity2text_dict = {}
-    with open('entity2text.txt', 'r', encoding='utf-8') as file:
-        for line in file.readlines():
-            num, entity2text = line.strip().split('\t')
-            first_comma_index = entity2text.find(',')
-            if first_comma_index != -1:
-                entity, text = entity2text.split(',', 1)
-                entity = entity.strip()
-                text = text.strip().replace('"', '').replace("'", "")
-                entity2num[num] = entity
-                entity2text_dict[num] = text
+    # The first part is the words joined by underscore, replace them with spaces
+    words_part = ' '.join(parts[:-2])
 
-    # Preparing base parts of the query
-    query_base1 = "Give synonyms for '"
-    query_base2 = "' based on the content of the text '"
-    query_base3 = "', and answer in the format {'"
-    query_base4 = "':[your answer]}."
+    # The second to last part is the tag
+    # tag_part = parts[-2]
 
-    # Initialize the tokenizer with special token attack protection disabled by default
-    tokenizer = AutoTokenizer.from_pretrained("/openbayes/input/input0", trust_remote_code=True)
+    return words_part.strip()
 
-    # Initialize the model. Uncomment the appropriate model initialization based on your GPU's capabilities
-    # For bf16 precision (recommended for A100, H100, RTX3060, RTX3070 GPUs) to save memory
-    # model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True, bf16=True).eval()
+model = AutoModelForCausalLM.from_pretrained(
+    "/openbayes/input/input0",
+    torch_dtype="auto",
+    device_map="auto"
+)
+tokenizer = AutoTokenizer.from_pretrained("/openbayes/input/input0")
 
-    # For fp16 precision (recommended for V100, P100, T4 GPUs) to save memory
-    # model = AutoModelForCausalLM.from_pretrained("/openbayes/input/input0", device_map="auto", trust_remote_code=True, fp16=True).eval()
+with open('wordnet-mlj12-definitions_add_example_qwen_7_int4.txt', 'w', encoding='utf-8') as file:
+    with open('wordnet-mlj12-definitions_without_examples.txt', 'r', encoding='utf-8') as f3:
+        for index,item in tqdm(enumerate(f3.readlines())):
+            id_, entity_, desc_ = item.strip().split('\t')
+            entity = process_string(entity_)
+            prompt = (
+                        f"input = '{entity}' means '{desc_}', "
+                        f"please use the shortest possible text to introduce the usage of '{entity}'.\n"
+                        f"output = ")
+            messages = [
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": prompt}
+            ]
+            print(prompt)
+            text = tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True
+            )
+            model_inputs = tokenizer([text], return_tensors="pt").to(device)
 
-    # For using CPU for inference, requires about 32GB of memory
-    # model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="cpu", trust_remote_code=True).eval()
+            generated_ids = model.generate(
+                model_inputs.input_ids,
+                max_new_tokens=128
+            )
+            generated_ids = [
+                output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
+            ]
 
-    # Default to auto mode, which automatically selects precision based on the device
-    model = AutoModelForCausalLM.from_pretrained("/openbayes/input/input0", device_map="auto",
-                                                 trust_remote_code=True).eval()
+            response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 
-    # Configure model generation settings
-    model.generation_config = GenerationConfig.from_pretrained("/openbayes/input/input0", trust_remote_code=True)
-
-    # Generate synonyms and write to a new file
-    with open('generate_synonyms_new_Qwen.txt', 'w', encoding='utf-8') as output_file:
-        for count, (key, value) in enumerate(tqdm(entity2text_dict.items(), desc="processing...")):
-            question = f"{query_base1}{entity2num[key]}{query_base2}{value}{query_base3}{entity2num[key]}{query_base4}"
-            response, _ = model.chat(tokenizer, question, history=None)
-            response_cleaned = response.replace("\n", '')
-
-            print(count, response_cleaned)
-            output_file.write(f"{entity2num[key]}\t{response_cleaned}\n")
-
-
-if __name__ == '__main__':
-    generate_synonyms()
+            ans = response.replace("\n", "")
+            print(index,ans)
+            final_ans = f"{desc_}; {ans}"
+            file.write(f"{id_}\t{final_ans}\n")
+            break
