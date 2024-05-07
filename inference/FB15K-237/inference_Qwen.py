@@ -1,46 +1,44 @@
-# -*- coding: utf-8 -*-
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from transformers.generation import GenerationConfig
 from tqdm import tqdm
+device = "cuda" # the device to load the model onto
 
-# Initialize the tokenizer with special token attack protection disabled by default
-tokenizer = AutoTokenizer.from_pretrained("/openbayes/input/input0", trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained(
+    "Qwen/Qwen1.5-7B-Chat-GPTQ-Int4",
+    torch_dtype="auto",
+    device_map="auto"
+)
+tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen1.5-7B-Chat-GPTQ-Int4")
 
-# Initialize the model with precision and device settings
-# Uncomment the appropriate model initialization based on your GPU's capabilities
-# For GPUs like A100, H100, RTX3060, RTX3070, etc., enable bf16 precision to save memory
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True, bf16=True).eval()
+with open('FB15k_mid2description_qwen-7-int4.txt', 'w', encoding='utf-8') as file:
+    with open('data/FB15k_mid2description.txt', 'r', encoding='utf-8') as f3:
+        for index,item in tqdm(enumerate(f3.readlines())):
+            id_, desc_ = item.strip().split('\t')
+            prompt = (f"Task: summarize text, please answer in English.\n"
+                        f"Please summarize the following sentence in the shortest possible text while retaining sufficient semantic information.\n"
+                        f"sentence = {desc_}")
+            messages = [
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": prompt}
+            ]
+            print(prompt)
+            text = tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True
+            )
+            model_inputs = tokenizer([text], return_tensors="pt").to(device)
 
-# For GPUs like V100, P100, T4, etc., enable fp16 precision to save memory
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True, fp16=True).eval()
+            generated_ids = model.generate(
+                model_inputs.input_ids,
+                max_new_tokens=128
+            )
+            generated_ids = [
+                output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
+            ]
 
-# Use CPU for inference, requires about 32GB of memory
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="cpu", trust_remote_code=True).eval()
+            response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 
-# Default to auto mode, which automatically selects precision based on the device
-model = AutoModelForCausalLM.from_pretrained("/openbayes/input/input0", device_map="auto", trust_remote_code=True).eval()
-
-# Specify different generation lengths, top_p, and other hyperparameters
-model.generation_config = GenerationConfig.from_pretrained("/openbayes/input/input0", trust_remote_code=True)
-
-# Define the prompt for the model
-prompt = "Please summarize the following text in one sentence as briefly as possible, and output it in the format {'output':}: "
-
-# Initialize a counter for tracking the number of processed lines
-count = 0
-
-# Open the output file for writing the summaries
-with open('entity2textlong_summarize.txt', 'w', encoding='utf-8') as f2:
-    # Open the input file for reading the texts to be summarized
-    with open('entity2textlong.txt', 'r', encoding='utf-8') as f1:
-        # Iterate over each line in the input file
-        for line1 in tqdm(f1.readlines(), desc="predict..."):
-            num, text = line1.strip().split('\t')
-            question = prompt + text
-            response, history = model.chat(tokenizer, question, history=None)
-            print(count, response)
-
-            # Writing num, response, and newline in one line
-            f2.write(f"{num}\t{response}\n")
-
-            count += 1
+            ans = response.replace("\n", "")
+            print(index,ans)
+            file.write(f"{id_}\t{ans}\n")
+            break
