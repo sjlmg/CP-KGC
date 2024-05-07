@@ -1,0 +1,135 @@
+idea_or_concept	An abstract mental construct representing thoughts, beliefs, or understanding about a particular subject.
+virus	A microscopic infectious agent consisting of genetic material (DNA or RNA) enclosed in a protein coat. It can only replicate within a host cell and often causes diseases in plants, animals, or humans.
+spatial_concept	An abstract notion related to the arrangement, position, or relationships of objects in physical space.
+human_caused_phenomenon_or_process	An event or activity that is the result of human actions, interventions, or influence on the environment.
+human	A member of the species Homo sapiens, characterized by advanced cognitive abilities, social interaction, and the ability to create and use complex tools.
+organ_or_tissue_function	The specific role or task performed by a distinct part of an organism's body (organ) or a group of similar cells working together (tissue) to maintain the overall functioning of the organism.
+daily_or_recreational_activity	Routine tasks or leisure pursuits engaged in by individuals for various purposes, such as relaxation, enjoyment, or personal fulfillment.
+steroid	A type of organic molecule with a specific structure, often associated with hormonal regulation, inflammation reduction, and other physiological functions.
+biomedical_or_dental_material	Substances used in the medical or dental field to diagnose, treat, or replace biological tissues, aiding in various health-related procedures.
+vertebrate	An animal belonging to the subphylum Vertebrata, characterized by having a backbone or vertebral column as part of their internal skeletal structure.
+immunologic_factor	A substance or molecule that plays a role in the immune response, influencing the body's defense against infections and diseases.
+inorganic_chemical	A compound that lacks carbon-hydrogen (C-H) bonds and is not derived from living organisms, often including minerals, metals, and simple compounds like salts.
+invertebrate	An animal lacking a backbone or vertebral column, constituting a vast majority of the animal kingdom.
+embryonic_structure	A developing anatomical form during the early stages of an organism's growth and development, typically referring to a stage before birth or hatching.
+functional_concept	An abstract notion related to the purpose or role of an entity within a system, often describing its intended action or contribution.
+amino_acid_peptide_or_protein	A building block of proteins, amino acids are organic molecules containing an amine group and a carboxyl group, joined by peptide bonds to form peptides and proteins.
+fish	A cold-blooded vertebrate aquatic animal characterized by gills, fins, and typically scales, with various species inhabiting freshwater and marine environments.
+reptile	A cold-blooded vertebrate characterized by scaly skin, laying amniotic eggs, and often inhabiting terrestrial environments.
+physical_object	Tangible matter that occupies space and possesses mass, observable through the senses.
+disease_or_syndrome	An abnormal condition or set of symptoms that disrupts the normal functioning of an organism, often leading to medical disorders or health issues.
+biologically_active_substance	A chemical compound or molecule that produces specific effects within living organisms, influencing physiological processes.
+physiologic_function	The role or task performed by a specific structure or process within an organism's body, contributing to its overall health and functioning.
+population_group	A collection of individuals belonging to the same species and sharing common characteristics or residing in a particular area.
+group	A collection of entities or individuals that share common attributes, characteristics, or purposes, often forming a distinct category.
+body_space_or_junction	A specific area or point where different parts of the body meet or interact, often facilitating communication or exchange.
+bird	A warm-blooded, feathered vertebrate with a beak, wings, and the ability to lay eggs, typically capable of flight.
+qualitative_concept	An abstract idea that focuses on the nature or quality of something rather than specific quantities or measurements.
+bacterium	A single-celled microorganism belonging to the domain Bacteria, characterized by its prokaryotic cellular structure.
+cell_function	The specialized role or task carried out by an individual cell in a living organism, contributing to the organism's overall functions.
+enzyme	A biological molecule, typically a protein, that catalyzes or speeds up chemical reactions within cells, facilitating various metabolic processes.
+organophosphorus_compound	A chemical compound containing phosphorus and often used in pesticides, nerve agents, and other applications.
+nucleic_acid_nucleoside_or_nucleotide	Nucleosides are composed of a nitrogenous base and a sugar molecule, while nucleotides also include a phosphate group. They form the building blocks of DNA and RNA.
+cell	The fundamental unit of life, consisting of a membrane-bound structure containing genetic material and performing various functions within living organisms.
+language	A system of communication using symbols, sounds, or gestures to convey meaning and share information among individuals.
+antibiotic	A substance that inhibits or kills bacteria, often used for medical treatment to combat bacterial infections.
+indicator_reagent_or_diagnostic_aid	A substance used to detect the presence or absence of a specific chemical or to assist in diagnosing certain conditions or reactions.
+fungus	A type of organism belonging to the kingdom Fungi, often characterized by their multicellular structure and ability to absorb nutrients from their surroundings.
+chemical_viewed_functionally	Understanding a chemical substance based on its roles, effects, and interactions within a biological or chemical system.
+rickettsia_or_chlamydia	Microorganisms that are intermediate between bacteria and viruses, often causing diseases and requiring host cells for replication.
+patient_or_disabled_group	A collection of individuals who share specific health conditions or disabilities, often requiring specialized care or support.
+professional_society	An organization composed of individuals within a specific profession, typically aimed at advancing knowledge, sharing expertise, and promoting collaboration among its members.
+health_care_related_organization	An entity focused on activities related to healthcare, such as medical institutions, research centers, and advocacy groups.
+clinical_attribute	A characteristic or feature associated with the diagnosis, treatment, or observation of a patient's medical condition.
+biomedical_occupation_or_discipline	A field of study or profession that involves the application of biological and medical principles to develop treatments, technologies, and understanding of health and disease.
+temporal_concept	A notion relating to time, including past, present, and future, often used to describe the timing or sequence of events.
+phenomenon_or_process	An observable event or series of events that occurs naturally or as a result of specific actions, often involving a sequence of steps.
+family_group	A collection of related individuals sharing a common ancestry, often living together and forming social bonds.
+chemical_viewed_structurally	Understanding a chemical substance based on its molecular structure, arrangement of atoms, and chemical bonds.
+regulation_or_law	A rule or directive established by an authority or governing body to control, guide, or manage certain behaviors, activities, or industries.
+acquired_abnormality	An irregularity or deviation from the normal state that develops after birth or as a result of external factors, contrasting with congenital abnormalities that are present from birth.
+experimental_model_of_disease	A controlled representation of a disease or condition in a laboratory setting, often used for research purposes to study mechanisms and potential treatments.
+professional_or_occupational_group	A collection of individuals within a specific field of work or expertise, often sharing common skills, knowledge, and responsibilities.
+injury_or_poisoning	Physical harm or damage to the body caused by external factors, which can include accidental or deliberate exposure to harmful substances.
+receptor	A molecular structure on the surface of cells or within cells that binds to specific molecules, transmitting signals and initiating cellular responses.
+drug_delivery_device	A tool or system designed to administer medications or therapeutic substances to the body in a controlled manner.
+hazardous_or_poisonous_substance	A material that poses a risk to health, safety, or the environment due to its potential to cause harm or toxicity.
+organism	A living individual entity, often referring to a single life form with distinct characteristics, behaviors, and biological functions.
+neoplastic_process	The development and growth of abnormal tissue, often associated with cancerous growth or tumor formation.
+mammal	A warm-blooded vertebrate characterized by mammary glands, hair or fur, and typically giving birth to live young.
+molecular_function	The specific role or task performed by a molecule within a biological system, contributing to various cellular processes and interactions.
+lipid	A diverse group of organic molecules that includes fats, oils, and phospholipids, important for energy storage, cellular structure, and signaling.
+group_attribute	A characteristic or quality that is common to members of a specific set or category.
+nucleotide_sequence	The arrangement of nucleotides in a DNA or RNA molecule, encoding genetic information in a specific order.
+biologic_function	The specific task or role performed by a living organism, cell, or molecular component, contributing to its overall survival and well-being.
+chemical	A substance with a distinct molecular composition that can undergo various interactions and reactions with other substances.
+cell_component	A part or structure within a cell that has a specific function, contributing to the cell's overall activities and processes.
+intellectual_product	A creation of the human intellect, often resulting from cognitive processes such as creativity, innovation, or problem-solving.
+manufactured_object	An item created through human production or manufacturing processes, often designed to serve specific purposes.
+classification	The process of categorizing or organizing objects, concepts, or organisms into groups based on shared characteristics.
+geographic_area	A defined region of the Earth's surface with specific physical, cultural, or political attributes, often distinguished by its location and features.
+vitamin	An essential organic compound required in small amounts for various physiological functions, often obtained through diet and crucial for overall health.
+gene_or_genome	A gene is a segment of DNA that codes for a specific protein or functional RNA molecule. A genome refers to an organism's complete set of genetic material.
+self_help_or_relief_organization	A group focused on assisting individuals in improving their well-being, often in the context of health, emotional support, or disaster recovery.
+pathologic_function	An abnormal or disrupted biological process that contributes to the development of diseases or health disorders.
+amphibian	A cold-blooded vertebrate that typically leads a dual life, starting in water as an aquatic larva and transitioning to a terrestrial adult.
+laboratory_or_test_result	Information obtained from scientific experiments or medical tests, providing insights into various parameters, conditions, or substances.
+organism_attribute	A specific quality or characteristic that defines or describes an organism, often related to its structure, behavior, or traits.
+cell_or_molecular_dysfunction	An abnormality or impairment in the functioning of cells or molecules, contributing to disease development or health issues.
+therapeutic_or_preventive_procedure	A medical or health-related action taken to treat existing conditions or prevent the onset of diseases or complications.
+sign_or_symptom	A sign is an objective indication of a medical condition, often observable by a healthcare provider, while a symptom is a subjective experience reported by a patient.
+occupational_activity	A specific task or work-related function performed as part of one's job or profession.
+anatomical_abnormality	A deviation from the normal structure or arrangement of body parts or organs.
+hormone	A chemical messenger produced by glands that regulates various physiological processes and behaviors in the body.
+fully_formed_anatomical_structure	A mature and developed body part or organ with its characteristic features and functions.
+educational_activity	A purposeful action undertaken to acquire knowledge, skills, or information, often in a structured learning environment.
+quantitative_concept	An idea or notion that involves measurement, numbers, or numerical values to describe or quantify characteristics.
+tissue	A group of similar cells working together to perform a specific function within an organism's body.
+organism_function	The specific role, task, or purpose carried out by an individual organism, contributing to its overall survival and well-being.
+social_behavior	Patterns of actions and interactions between individuals within a group or society, often influenced by cultural norms and social dynamics.
+mental_or_behavioral_dysfunction	An impairment or disturbance in mental processes or behaviors that affect an individual's well-being, often requiring medical or psychological intervention.
+governmental_or_regulatory_activity	Actions or processes carried out by a government or regulatory body to oversee, manage, or enforce laws, regulations, and policies.
+molecular_biology_research_technique	A method or approach used in the field of molecular biology to study and manipulate biological molecules and processes at the molecular level.
+occupation_or_discipline	A specific profession, field of work, or area of study characterized by its own set of practices, knowledge, and expertise.
+conceptual_entity	An abstract idea or entity that exists in the realm of thought or imagination, often representing intangible concepts.
+body_location_or_region	A specific area or part of the body, often used to describe the position or region where certain structures or processes occur.
+pharmacologic_substance	A chemical compound used for medical or therapeutic purposes, often affecting physiological processes within the body.
+clinical_drug	A medication or pharmaceutical substance used for the treatment, prevention, or management of medical conditions in a clinical setting.
+food	Edible substances consumed by organisms to provide energy, nutrients, and sustenance for growth and survival.
+substance	A material or matter with distinct physical properties and characteristics that make up the composition of objects and entities.
+genetic_function	The role or task performed by genes in an organism, often involving the expression of traits, regulation of processes, and contribution to overall function.
+congenital_abnormality	An irregularity or deviation from the normal structure or function of the body that is present at birth.
+medical_device	An instrument, apparatus, or machine designed for medical purposes, often used for diagnosis, treatment, monitoring, or support.
+carbohydrate	An organic compound made up of carbon, hydrogen, and oxygen atoms, serving as a primary source of energy in many organisms.
+health_care_activity	A task or action carried out within the context of providing medical care, treatment, or services to individuals or populations.
+eicosanoid	A type of bioactive molecule derived from fatty acids that plays a role in inflammation, immunity, and other physiological processes.
+element_ion_or_isotope	An element is a substance composed of atoms with the same number of protons. An ion is an atom with a positive or negative charge. An isotope is a variant of an element with a different number of neutrons.
+diagnostic_procedure	A medical or clinical process used to identify, detect, or assess the presence of a disease, condition, or abnormality.
+entity	An individual unit or object that has a distinct existence, often used to refer to something with specific attributes or properties.
+event	A happening or occurrence, often marking a specific point in time or involving significant actions, developments, or changes.
+laboratory_procedure	A step-by-step sequence of actions or techniques performed in a laboratory setting to achieve specific scientific or analytical goals.
+environmental_effect_of_humans	The impact of human activities on the natural world, often causing changes in ecosystems, biodiversity, and the environment.
+body_part_organ_or_organ_component	An anatomical structure within an organism that serves a specific function, often contributing to overall physiological processes.
+molecular_sequence	The ordered arrangement of molecular units (such as nucleotides in DNA or amino acids in a protein), providing genetic or structural information.
+mental_process	Cognitive activities and operations that occur within the mind, including perception, thinking, memory, and emotions.
+research_device	A tool or apparatus used in scientific investigations to collect data, perform experiments, or analyze samples.
+alga	A simple, photosynthetic organism belonging to the plant kingdom, often found in aquatic environments.
+natural_phenomenon_or_process	Events or occurrences in the natural world, governed by scientific principles and often observable, such as weather patterns or geological processes.
+anatomical_structure	A specific part of an organism's body, often with distinct form and function, contributing to its overall architecture.
+animal	A multicellular, eukaryotic organism that is part of the animal kingdom, characterized by mobility, heterotrophy, and diverse forms.
+body_system	A group of organs, tissues, and cells that work together to perform specific functions within an organism, contributing to overall physiology and homeostasis.
+behavior	Actions, reactions, or conduct exhibited by organisms in response to internal and external stimuli, often reflecting their interactions with the environment.
+carbohydrate_sequence	The specific arrangement of sugar molecules within a carbohydrate molecule, which can impact its function and properties.
+archaeon	A type of single-celled microorganism belonging to the domain Archaea, often found in extreme environments and distinct from bacteria and eukaryotes.
+research_activity	Systematic and purposeful actions conducted to gather information, explore topics, or investigate phenomena to advance knowledge.
+organization	A structured and coordinated entity comprising individuals, resources, and activities, often working towards common goals or objectives.
+individual_behavior	The actions and responses displayed by a single organism, often influenced by its genetics, environment, and experiences.
+organic_chemical	A compound containing carbon atoms bonded to hydrogen and often other elements, forming the basis of many biomolecules and natural substances.
+finding	A discovered result or outcome obtained from research, investigation, or analysis, contributing to understanding and knowledge.
+age_group	A categorization of individuals based on their chronological age, often used for statistical or research purposes.
+activity	A purposeful action or task undertaken by an individual or group, often with specific goals or outcomes in mind.
+machine_activity	Purposeful actions performed by a mechanical device designed to achieve specific tasks, operations, or functions.
+plant	A multicellular, photosynthetic organism belonging to the plant kingdom, often rooted in the ground and producing its own food through photosynthesis.
+body_substance	A material or matter within an organism, often referring to substances found within body tissues, fluids, or compartments.
+amino_acid_sequence	The linear arrangement of amino acids in a protein molecule, determining its primary structure and influencing its function.
+neuroreactive_substance_or_biogenic_amine	A chemical compound that affects neural activity, often influencing processes such as neurotransmission and neural signaling. Biogenic amines include molecules like serotonin and dopamine.
