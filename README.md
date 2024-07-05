@@ -39,9 +39,18 @@ If you **don't have the computing resources**, you can use the **Qwen-7B-Chat** 
 If you find our paper or code repository helpful, please consider citing as follows:
 ```
 @article{yang2023cp,
-  title={CP-KGC: Constrained-Prompt Knowledge Graph Completion with Large Language Models},
+  title={CP-KGC: constrained-prompt knowledge graph completion with large language models},
   author={Yang, Rui and Fang, Li and Zhou, Yi},
   journal={arXiv preprint arXiv:2310.08279},
   year={2023}
+}
+Currently online on KBS.
+@article{yang2024enhancing,
+  title={Enhancing text-based knowledge graph completion with zero-shot large language models: A focus on semantic enhancement},
+  author={Yang, Rui and Zhu, Jiahao and Man, Jianping and Fang, Li and Zhou, Yi},
+  journal={Knowledge-Based Systems},
+  pages={112155},
+  year={2024},
+  publisher={Elsevier}
 }
 ```
