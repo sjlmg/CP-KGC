@@ -1,5 +1,5 @@
 # CP-KGC
-The paper is available at: [Can Text-based Knowledge Graph Completion Benefit From Zero-Shot Large Language Models?](https://arxiv.org/pdf/2310.08279.pdf) 
+The paper is available at: [Enhancing Text-based Knowledge Graph Completion with Zero-Shot Large Language Models: A Focus on Semantic Enhancement](https://arxiv.org/pdf/2310.08279.pdf) 
 
 In this paper, we found that 
 (1) We validated the effectiveness of CP-KGC using three publicly available datasets. CP-KGC enhances the semantic integrity of text and further improves the performance of text-based approaches.
@@ -38,13 +38,6 @@ If you **don't have the computing resources**, you can use the **Qwen-7B-Chat** 
 # Citation
 If you find our paper or code repository helpful, please consider citing as follows:
 ```
-@article{yang2023cp,
-  title={CP-KGC: constrained-prompt knowledge graph completion with large language models},
-  author={Yang, Rui and Fang, Li and Zhou, Yi},
-  journal={arXiv preprint arXiv:2310.08279},
-  year={2023}
-}
-Currently online on KBS.
 @article{yang2024enhancing,
   title={Enhancing text-based knowledge graph completion with zero-shot large language models: A focus on semantic enhancement},
   author={Yang, Rui and Zhu, Jiahao and Man, Jianping and Fang, Li and Zhou, Yi},
